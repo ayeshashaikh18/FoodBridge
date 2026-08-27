@@ -1,0 +1,20 @@
+# Compiled Java files
+*.class
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Build output
+target/
+out/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment / secrets
+.env
