@@ -1,6 +1,8 @@
 package com.foodbridge;
 
 import com.foodbridge.model.FoodDonation;
+import com.foodbridge.model.Donor;
+import com.foodbridge.model.DonorType;
 
 public class Main {
 
@@ -18,5 +20,20 @@ public class Main {
         );
 
         donation1.displayDonation();
+
+        Donor donor1 = new Donor(
+                "D001",
+                "Royal Restaurant",
+                DonorType.RESTAURANT,
+                "9876543210",
+                "Aurangabad"
+        );
+
+        donation1.setDonor(donor1);
+
+        System.out.println("Donation was made by: "
+                + donation1.getDonor().getName());
+
+        donor1.displayDonor();
     }
 }
