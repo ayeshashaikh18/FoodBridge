@@ -3,6 +3,8 @@ package com.foodbridge;
 import com.foodbridge.model.FoodDonation;
 import com.foodbridge.model.Donor;
 import com.foodbridge.model.DonorType;
+import com.foodbridge.model.NGO;
+import com.foodbridge.model.UrgencyLevel;
 
 public class Main {
 
@@ -35,5 +37,18 @@ public class Main {
                 + donation1.getDonor().getName());
 
         donor1.displayDonor();
+
+        NGO ngo1 = new NGO(
+        "N001",
+        "Helping Hands",
+        "Aurangabad",
+        "Cooked Food",
+        30,
+        "kg",
+        UrgencyLevel.HIGH
+);
+
+ngo1.displayNGO();
+
     }
 }
