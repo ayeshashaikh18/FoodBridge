@@ -2,6 +2,7 @@ package com.foodbridge.service;
 
 import com.foodbridge.model.FoodDonation;
 import com.foodbridge.model.NGO;
+import java.util.List;
 
 public class MatchingEngine {
 
@@ -43,6 +44,28 @@ public boolean isEligibleMatch(FoodDonation donation, NGO ngo) {
             && notExpired
             && goodQuality
             && sameUnit;
+}
+
+
+public FoodDonation findBestDonation(
+        List<FoodDonation> donations, NGO ngo) {
+
+    FoodDonation bestDonation = null;
+
+    for (FoodDonation donation : donations) {
+
+        if (isEligibleMatch(donation, ngo)) {
+
+            if (bestDonation == null
+                    || donation.getExpiryHours()
+                    < bestDonation.getExpiryHours()) {
+
+                bestDonation = donation;
+            }
+        }
+    }
+
+    return bestDonation;
 }
 
 }

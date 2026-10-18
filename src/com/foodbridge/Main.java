@@ -158,5 +158,33 @@ for (FoodDonation donation : donations) {
     }
 }
 
+
+System.out.println("\n--- BEST DONATION RECOMMENDATIONS ---");
+
+for (NGO ngo : ngos) {
+
+    FoodDonation bestDonation =
+            matchingEngine.findBestDonation(donations, ngo);
+
+    if (bestDonation != null) {
+
+        System.out.println("NGO: " + ngo.getName());
+        System.out.println(
+                "Recommended Food: " + bestDonation.getFoodName());
+        System.out.println(
+                "Quantity: " + bestDonation.getQuantity()
+                + " " + bestDonation.getUnit());
+        System.out.println(
+                "Expires in: " + bestDonation.getExpiryHours()
+                + " hours");
+
+    } else {
+        System.out.println(
+                "No eligible donation found for " + ngo.getName());
+    }
+
+    System.out.println("------------------------------");
+}
+
     }
 }
