@@ -142,5 +142,21 @@ System.out.println("Donation #104 more urgent than Donation #101: "
 System.out.println("Quantity Sufficient: " + quantityMatch);
 System.out.println("Category Match: " + match);
 
+System.out.println("\n--- FOODBRIDGE MATCHING RESULTS ---");
+
+for (FoodDonation donation : donations) {
+
+    for (NGO ngo : ngos) {
+
+        boolean eligible = matchingEngine.isEligibleMatch(donation, ngo);
+
+        System.out.println(
+                donation.getFoodName() + " -> "
+                + ngo.getName() + " : "
+                + (eligible ? "ELIGIBLE" : "NOT ELIGIBLE")
+        );
+    }
+}
+
     }
 }

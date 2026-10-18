@@ -22,4 +22,27 @@ public class MatchingEngine {
         return donation1.getExpiryHours()
                 < donation2.getExpiryHours();
     }
+
+    
+public boolean isEligibleMatch(FoodDonation donation, NGO ngo) {
+
+    boolean categoryMatch = isCategoryMatch(donation, ngo);
+
+    boolean quantityMatch = isQuantitySufficient(donation, ngo);
+
+    boolean notExpired = donation.getExpiryHours() > 0;
+
+    boolean goodQuality = donation.getQualityStatus()
+            .equalsIgnoreCase("GOOD");
+
+    boolean sameUnit = donation.getUnit()
+            .equalsIgnoreCase(ngo.getUnit());
+
+    return categoryMatch
+            && quantityMatch
+            && notExpired
+            && goodQuality
+            && sameUnit;
+}
+
 }
